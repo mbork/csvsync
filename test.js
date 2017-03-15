@@ -52,6 +52,11 @@ test('csv reading and writing', function(t) {
 			'csv': '"hello\nworld",B1\nsecond line,B2\n',
 			'js': [['hello\nworld', 'B1'], ['second line', 'B2']],
 		},
+		{
+			'name': 'escaped quote after comma',
+			'csv': 'one,"outside ""inside,"" outside again",three\n',
+			'js': [['one', 'outside "inside," outside again', 'three']],
+		},
 	];
 
 	_.each(tests, function(test) {
